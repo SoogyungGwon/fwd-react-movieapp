@@ -1,10 +1,33 @@
 //Home
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { appTitle, popularQuery, apiKey } from '../globals/globalVariables';
+import Poster from '../components/Poster';
 
 const HomePage = () => {
 
-    const [sliderHeroMovie, setSliderHeroMovi] = useState(null);
+    const [sliderHeroMovies, setSliderHeroMovies] = useState(null);
+    const [movies, setMovie] = useState([]);
+    const [url_set, setUrl] = useState("");
+    
+    useEffect(() => {
+        document.title = `${appTitle} - Home`;
+    }, []);
+
+    useEffect(() => {
+
+        const getJsonPopular = async () => {
+            const response = await fetch(popularQuery+apiKey, {
+            });
+
+            const data = await response.json();
+            setMovie(data.results);
+            
+        }
+
+        getJsonPopular();
+
+    }, [url_set]);
 
     return (
     <>
@@ -12,27 +35,31 @@ const HomePage = () => {
             <h1 className="home-heading">Moviesite Home</h1>
             <section>
                 <h2>Hero Image</h2>
-                <img className='hero-image'></img>
-                <textblock>
+                <p>{url_set}</p>             
+                <img className='hero-image' src=""></img>
+                <div className='hero-desc'>
                     <h3>Hero image movie name</h3>
                     <p>Hero image Movie info</p>
                     <p>Hero image movie description</p>
-                </textblock>
+                </div>
             </section>
-
-
-
-
 
             <section>
                 <h2>Popular movies</h2>
-                <poseter>
-
-                </poseter>
+                <div>
+                    {
+                        (movies.length==0) ? <p>Movies not found!</p>:movies.map((res,pos)=>{
+                            return(
+                                <Poster info={res} key={pos} />
+                            )
+                        })
+                    }
+                </div>
             </section>
-            <sectoin>
+            <section>
                 <h2>Other movies with filter</h2>
-            </sectoin>
+                <div className="poster">Posters</div>
+            </section>
         </main>
 
     </>

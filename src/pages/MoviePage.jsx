@@ -1,6 +1,7 @@
 //Single movie page
 
 //import
+import { useEffect, useState } from 'react'
 import react from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -30,6 +31,11 @@ import { appTitle, appAuthor, apiKey } from '../globals/globalVariables';
 // //Auth check example END
 
 const MoviePage = () => {
+
+    useEffect(() => {
+        document.title = `${appTitle}`;
+    }, []);
+
     return (
         <div>Movie page</div>
     );
