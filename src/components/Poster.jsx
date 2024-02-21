@@ -1,7 +1,20 @@
-import react from 'react';
+import react, { useState } from 'react';
 import { imageBaseURL } from '../globals/globalVariables';
 
-const Poster = (movies) => {
+const Poster = ( movies ) => {
+
+    const [movieID, setMovieID] = useState(" ");
+
+    const addToList = () => {
+
+    }
+
+    const seeMore = (e) => {
+        setMovieID(e.target.value);
+        console.log({movieID});
+        
+    }
+
         return (
         <>
             <div className="movie">
@@ -14,6 +27,10 @@ const Poster = (movies) => {
                     <div className="overview-on-poster">
                         <h4>Overview</h4>
                         <p>{movies.info.overview}</p>
+                    </div>
+                    <div className="poster-button">
+                        <button value={movies.info.id} onClick={addToList}>Add</button>
+                        <button value={movies.info.id} onClick={seeMore}>More</button>
                     </div>
                 </div>
             </div>

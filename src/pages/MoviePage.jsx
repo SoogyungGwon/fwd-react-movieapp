@@ -1,40 +1,40 @@
 //Single movie page
 
 //import
-import { useEffect, useState } from 'react'
 import react from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+
 
 //Variables
-import { appTitle, appAuthor, apiKey } from '../globals/globalVariables';
-
-
-//Connect to Movie API
-//example of JSON 'https://api.themoviedb.org/3/movie/11?api_key=f8bcc12bd6f6afe7a33a79281ec21649'
-
-// //Auth check from Movie DB API documentation
-// const fetch = require('node-fetch');
-
-// const url = 'https://api.themoviedb.org/3/authentication';
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOGJjYzEyYmQ2ZjZhZmU3YTMzYTc5MjgxZWMyMTY0OSIsInN1YiI6IjY1YjdmZjFmYjE4ZjMyMDE3YzI4NDM4ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QteDge71_dNnuxilMmI4wuYgNwz8y35vFrIux_SMVB0'
-//   }
-// };
-
-// fetch(url, options)
-//   .then(res => res.json())
-//   .then(json => console.log(json))
-//   .catch(err => console.error('error:' + err));
-// //Auth check example END
+import { appTitle, apiKey, singleMoveQuery } from '../globals/globalVariables';
 
 const MoviePage = () => {
 
     useEffect(() => {
         document.title = `${appTitle}`;
     }, []);
+
+    useEffect(() => {
+
+        const getSingleMovieData = async () => {
+            const response = await fetch(singleMoveQuery + id + '?language=en-US' + apiKey, {
+            });
+
+            const data = await response.json();
+            setMovie(data);
+        }
+
+        getSingleMovieData();
+
+    }, []);
+
+    const contentByID = (id) => {
+        const content = {
+
+        };
+
+        return content[id] || 'Content is not found';
+    }
 
     return (
         <div>Movie page</div>

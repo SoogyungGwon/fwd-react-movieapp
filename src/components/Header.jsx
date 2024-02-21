@@ -1,23 +1,25 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react'
-import { searchBaseURL, apiKey } from '../globals/globalVariables';
+import { searchBaseURL } from '../globals/globalVariables';
 
-const Header = ( { url_set, setUrl } ) => {
+const Header = ( { onQuery } ) => {
 
     const [search, setSearch] = useState("");
-    
+    const navigate = useNavigate();
+            
     const searchMovie = (evt) => {
-        if(evt.key=="Enter"){
-            let url=`${searchBaseURL}`+`${apiKey}`+'&query=' +`${search}`;
-            console.log( {url} );
-            setUrl(url);
+        if(evt.key=="Enter" || evt.type == "click"){
+            let url=`${searchBaseURL}` + `${search}`;
+            console.log(url);
+            onQuery(url)
             setSearch("");
+            navigate('/search');
         }
     }
 
     const searchEntered = (e) => {
-
         e.preventDefault();
+        console.log('search changed');
         setSearch(e.target.value);
     }
 
@@ -30,14 +32,13 @@ const Header = ( { url_set, setUrl } ) => {
                 <li><NavLink to="/about">About</NavLink></li>
                 {/* temporary link below */}
                 <li><NavLink to="/movie">Temporary Movie</NavLink></li>
+                {/* <li><NavLink to="/search">Search</NavLink></li> */}
                 <li>
-                    {/* <form> */}
-                        <input type="text" placeholder="Search" 
-                        value={search} 
-                        onChange={searchEntered} 
-                        onKeyDown={searchMovie} />
-                        <button name="search-button" onClick={searchMovie}>S</button>
-                    {/* </form> */}
+                            <input type="text" placeholder="Search" 
+                            value={search} 
+                            onChange={searchEntered} 
+                            onKeyDown={searchMovie} />
+                            <button id="search-button" onClick={searchMovie}>S</button>
                 </li>
             </ul>
         </nav>
