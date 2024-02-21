@@ -1,10 +1,20 @@
+//App info
 export const appTitle = 'Moviesite';
 export const appAuthor = 'Soogyung Gwon';
-export const apiKey = "&api_key=f8bcc12bd6f6afe7a33a79281ec21649";
-export const popularQuery = 'https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=1&sort_by=popularity.desc';
-export const imageBaseURL = 'https://image.tmdb.org/t/p/w500/';
-export const searchBaseURL = 'https://api.themoviedb.org/3/search/keyword?';
 
+//api
+export const apiKey = "&api_key=f8bcc12bd6f6afe7a33a79281ec21649";
+
+//Genre
+export const popularQuery = 'https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=1&sort_by=popularity.desc';
+
+
+//image and search
+export const imageBaseURL = 'https://image.tmdb.org/t/p/w500/';
+export const searchBaseURL = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=';
+
+//Single movie ID query
+export const singleMoveQuery = 'https://api.themoviedb.org/3/movie/';
 
 
 

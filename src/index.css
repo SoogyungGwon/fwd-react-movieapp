@@ -30,13 +30,7 @@ body {
   min-height: 100vh;
 }
 
-.main-nav {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
+
 
 h1 {
   font-size: 3.2em;

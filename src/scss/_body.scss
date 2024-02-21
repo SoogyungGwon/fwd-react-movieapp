@@ -1,0 +1,18 @@
+.poster-image {
+    position: absolute;
+}
+
+.movie-details-on-poster {
+    position: relative;
+    max-width: 500px;
+}
+
+.movie {
+    max-width: 500px;
+}
+
+.movie-wrapper {
+    display: grid;
+    grid-template-rows: 1 auto auto;
+    justify-content: space-between;
+}
