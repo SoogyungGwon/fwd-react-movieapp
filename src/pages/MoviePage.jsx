@@ -64,7 +64,7 @@ const MoviePage = () => {
             {id !== null ? (
                 <>
                 <h1 className="more-title">{movies.title}</h1>
-                <img src={imageBaseURL + movies.poster_path} className='backdrop-image' />
+                <img src={imageBaseURL + movies.backdrop_path} className='backdrop-image' />
                 <div className="add-button-morepage">
                     { Found ? 
                         <button id={movies.id} onClick={handleRemoveList}>Remove</button> :

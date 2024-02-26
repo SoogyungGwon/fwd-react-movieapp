@@ -4,7 +4,9 @@ import react from 'react';
 
 const PageNotFound = () => {
     return (
-        <div>Page Not Found</div>
+        <main>
+            <div>Page Not Found</div>
+        </main>
     );
 }
 

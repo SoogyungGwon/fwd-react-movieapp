@@ -1,12 +1,13 @@
 //Home
 
 import { useEffect, useState } from 'react'
-import { appTitle, popularQuery, apiKey, imageBaseURL } from '../globals/globalVariables';
+import { appTitle, popularQuery, topRatedQuery, nowPlayingQuery, upcomingQuery, apiKey } from '../globals/globalVariables';
 import Poster from '../components/Poster';
 
 const HomePage = () => {
 
     const [movies, setMovie] = useState([]);
+    const [query, setQuery] = useState(popularQuery);
         
     useEffect(() => {
         document.title = `${appTitle} - Home`;
@@ -15,7 +16,7 @@ const HomePage = () => {
     useEffect(() => {
 
         const getJsonPopular = async () => {
-            const response = await fetch(popularQuery + apiKey, {
+            const response = await fetch(query + apiKey, {
             });
 
             const data = await response.json();
@@ -25,20 +26,37 @@ const HomePage = () => {
 
         getJsonPopular();
 
-    }, []);
+    }, [query]);
+
+    const handleMovieCategory = (e) => {
+        switch(e.target.id) {
+            case 'popular':
+                setQuery(popularQuery);
+                break;
+            case 'top-rated':
+                setQuery(topRatedQuery);
+                break;
+            case 'now-playing':
+                setQuery(nowPlayingQuery);
+                break;
+            case 'upcoming':
+                setQuery(upcomingQuery);
+                break;
+            default:
+                setQuery(popularQuery);
+        }
+        
+    }
 
     return (
     <>
         <main>
             <h1 className="home-heading">Moviesite Home</h1>
-            <section>
-                <h2>Hero Image</h2>
-                 <img className='hero-image' src=""></img>
-                <div className='hero-desc'>
-                    <h3>Hero image movie name</h3>
-                    <p>Hero image Movie info</p>
-                    <p>Hero image movie description</p>
-                </div>
+            <section className='type-button'>
+                <button id='popular' onClick={handleMovieCategory}>Popular</button>
+                <button id='top-rated' onClick={handleMovieCategory}>Top Rated</button>
+                <button id='now-playing' onClick={handleMovieCategory}>Now Playing</button>
+                <button id='upcoming' onClick={handleMovieCategory}>Upcoming</button>  
             </section>
 
             <section>
@@ -52,10 +70,6 @@ const HomePage = () => {
                         })
                     }
                 </div>
-            </section>
-            <section>
-                <h2>Other movies with filter</h2>
-                <div className="poster">Posters</div>
             </section>
         </main>
     </>
