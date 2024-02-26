@@ -1,7 +1,7 @@
 //Home
 
 import { useEffect, useState } from 'react'
-import { appTitle, popularQuery, apiKey } from '../globals/globalVariables';
+import { appTitle, popularQuery, apiKey, imageBaseURL } from '../globals/globalVariables';
 import Poster from '../components/Poster';
 
 const HomePage = () => {
@@ -26,7 +26,6 @@ const HomePage = () => {
         getJsonPopular();
 
     }, []);
-
 
     return (
     <>

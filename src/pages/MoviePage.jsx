@@ -59,31 +59,31 @@ const MoviePage = () => {
     const Found = fav.find(item => item.id === movies.id);
 
     return (
-        <>
-            <div className="movie">
+        <main>
+            <div className="more-movie">
             {id !== null ? (
                 <>
-                <img src={imageBaseURL + movies.poster_path} className='poster-image' />
-                <div className='movie-details-on-poster'>
-                    <div className='movie-text-box-on-poster'>
-                    <h4 className="title">{movies.title}</h4>
-                    <p className="rating">Rating: {movies.vote_average}</p>
-                    </div>
-                    <div className="overview-on-poster">
-                    <h4>Overview</h4>
-                    <p>{movies.overview}</p>
-                    </div>
-                    <div className="poster-button">
+                <h1 className="more-title">{movies.title}</h1>
+                <img src={imageBaseURL + movies.poster_path} className='backdrop-image' />
+                <div className="add-button-morepage">
                     { Found ? 
                         <button id={movies.id} onClick={handleRemoveList}>Remove</button> :
                         <button id={movies.id} onClick={handleAddList}>Add</button>
                     }
                     </div>
+                <div className='more-info-movie-details'>
+                    <div className='more-info-movie-text-box'>
+                        <p className="more-rating">Rating: {movies.vote_average}</p>
+                    </div>
+                    <div className="more-info-overview">
+                        <h2>Overview</h2>
+                        <p>{movies.overview}</p>
+                    </div>
                 </div>
                 </>
             ) : <p>Movie contents not found!</p>}
             </div>
-        </>
+        </main>
     );
 }
 

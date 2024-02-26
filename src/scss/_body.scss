@@ -1,18 +1,107 @@
-.poster-image {
-    position: absolute;
+body {
+    background-color: $dark;
+}
+
+main {
+    padding: 1rem;
 }
 
 .movie-details-on-poster {
     position: relative;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 500px;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,.7);
+}
+
+.movie-details-on-poster:hover {
+    opacity: 100%;
+}
+
+p.overview-on-poster {
+    max-height: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.poster-button {
+    text-align: center;
+}
+
+.rating {
+    text-align: right;
 }
 
 .movie {
+    min-width: 300px;
+    min-height: 500px;
+    margin: 1rem 0;
+    flex: 1;
+}
+
+.movie .heart {
+    position: absolute;
+}
+
+.movie img {
     max-width: 500px;
 }
 
-.movie-wrapper {
-    display: grid;
-    grid-template-rows: 1 auto auto;
-    justify-content: space-between;
+img.poster-image {
+    max-width: 200px;;
 }
+
+.movie-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+//Layout
+button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: .5rem .75rem;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 .5rem;
+  }
+
+  button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .heart {
+    padding: .5rem;
+    right: 0;
+  }
+
+  .heart img {
+    max-width: 20px;
+  }
+
+  .movie-text-box-on-poster {
+    margin-top: 1.5rem;
+  }
+
+  #search-input {
+    // height: 2rem;
+    padding: .25rem;
+  }
+ 
+  //More page
+  .more-movie {
+    text-align: center;
+  }

@@ -36,11 +36,9 @@ const SearchPage = () => {
     }, [query]);
 
     return (
-    <>
         <main>
             <h1>Serach Results</h1>
             <section>
-                <h2>Popular movies</h2>
                 <div className='movie-wrapper'>
                     {
                         (movies.length==0) ? <p>Movies not found!</p>:movies.map((res,pos)=>{
@@ -52,8 +50,6 @@ const SearchPage = () => {
                 </div>
             </section>
         </main>
-
-    </>
     );
 }
 

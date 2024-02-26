@@ -3,12 +3,11 @@
 import { useEffect } from 'react'
 import { appTitle } from '../globals/globalVariables'
 import { useSelector } from 'react-redux'
-import ListItem from '../components/ListItem'
+import Poster from '../components/Poster'
 
 const FavouritePage = () => {
 
     const fav = useSelector((state) => state.fav.items);
-    console.log("fav:" + fav);
 
     useEffect(() => {
         document.title = `${appTitle} - List`;
@@ -17,17 +16,16 @@ const FavouritePage = () => {
     
     return (
         <>
-            <h2>Fav</h2>
+            <h1>Fav</h1>
+            <div className="movie-wrapper">
             {
-             fav.length < 1 ? <p>No items added to the List</p> : 
-             <div className="fav-grid">
-                 {fav.map((favItem, i) => {
-                     return <ListItem key={i} 
-                                  listObj={favItem}
-                                  isFav={true} />
-                 })}
+                fav.length < 1 ? <p>No items added to the List</p> : fav.map((res,pos)=>{
+                    return(
+                        <Poster info={res} key={pos} />
+                    )
+                })
+            }
              </div>
-             }
         </>
     );
 }

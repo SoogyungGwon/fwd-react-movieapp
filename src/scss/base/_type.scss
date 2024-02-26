@@ -2,7 +2,20 @@
 
 body {
     font-family: $bodyFont;
-    color: $dark;
+    color: $grey;
+}
+
+nav {
+    font-family: $headingFont;
+    font-size: 1.5rem;
+}
+
+section {
+    margin: 1rem 0;
+}
+
+h1 {
+    font-size: 2rem;
 }
 
 h1, h2, h3, h4 {
@@ -10,9 +23,23 @@ h1, h2, h3, h4 {
 }
 
 h1, h2, h3, h4, p {
-    margin-top: 0;
+    //margin-top: 0;
 }
 
 p {
     line-height: 1.4;
+    margin: .5rem 0;
+}
+
+a{
+    color: $grey;
+    text-decoration: none;
+}
+
+.home-heading {
+    font-size: 0rem;
+}
+
+.more-info-overview {
+    text-align: left;
 }
