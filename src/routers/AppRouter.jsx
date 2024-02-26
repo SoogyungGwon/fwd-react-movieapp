@@ -15,24 +15,14 @@ import SearchPage from '../pages/SearchPage'
 
 const AppRouter = () => {
 
-    const [query, setQuery] = useState("");
-    const [clickedMovieID, setClickedMovieID] = useState("");
-    const { id } = useParams();
-
-    const handleMovideID =(data) => {
-        setClickedMovieID(data);
-    }
-
     return (
         <BrowserRouter>
-            <Header onQuery={setQuery}/>
+            <Header />
             <Routes>
-                <Route path="/" exact element={ <HomePage query={query} /> } />
+                <Route path="/" exact element={ <HomePage /> } />
                 <Route path="/about" element={ <AboutPage /> } />
-                <Route path="/movie">
-                    <Route path={id} element={ <MoviePage id={id}/> } /> 
-                </Route>
-                <Route path="/search" element={ <SearchPage query={query} />} />
+                <Route path="/movie/:mid" element={ <MoviePage /> } /> 
+                <Route path="/search" element={ <SearchPage />} />
                 <Route path="/favourite" element={ <FavouritePage /> } />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>

@@ -1,14 +1,20 @@
 //Home
 
 import { useEffect, useState } from 'react'
-import { appTitle, apiKey } from '../globals/globalVariables';
+import { searchBaseURL, appTitle, apiKey } from '../globals/globalVariables';
+import { useSelector, useDispatch } from 'react-redux';
 import Poster from '../components/Poster';
 
-const SearchPage = ( { query } ) => {
 
-    const [sliderHeroMovies, setSliderHeroMovies] = useState(null);
+const SearchPage = () => {
+
     const [movies, setMovie] = useState([]);
-    
+
+    const searchKey = useSelector(state => state.search.value);
+    console.log("searchKey is:" + searchKey);
+
+    const query = searchBaseURL + searchKey;
+     
     useEffect(() => {
         document.title = `${appTitle} - Search`;
     }, []);
@@ -16,14 +22,13 @@ const SearchPage = ( { query } ) => {
     useEffect(() => {
 
         const getSearch = async () => {
-            console.log(query+apiKey);
-            const response = await fetch(query+apiKey, {
+            const response = await fetch(query + apiKey, {
             });
 
             const data = await response.json();
             
             setMovie(data.results);
-            
+
         }
 
         getSearch();
