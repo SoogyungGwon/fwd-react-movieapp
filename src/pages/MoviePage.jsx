@@ -4,26 +4,23 @@
 import react from 'react';
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { updateMovieID } from '../feature/singleMovieSlice';
 import { useNavigate, useParams } from 'react-router-dom';
+import { addToList, removeFromList } from '../feature/favSlice';
 
 //Variables
 import { appTitle, apiKey, singleMoveQuery, imageBaseURL } from '../globals/globalVariables';
 
 const MoviePage = () => {
 
+    const fav = useSelector((state) => state.fav.items);
+
+
     let { mid } = useParams();
     console.log( "Param: :" + mid );
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const addToList = (e) => {
-
-
-    }
-
     const id = mid.match(/\d+/);
-    console.log("id: " + id);
     const [movies, setMovie] = useState([]);
   
     const query = singleMoveQuery + id + "?language=en-US" + apiKey;
@@ -46,6 +43,21 @@ const MoviePage = () => {
 
     }, [query]);
 
+    const handleRemoveList = (e) => {
+        console.log("Remove id: " + e.target.id);
+        dispatch(removeFromList(movies));
+        
+        console.log(movies.info);
+    }
+
+    const handleAddList = (e) => {
+        console.log("id: " + e.target.id);
+        dispatch(addToList(movies));
+        console.log(movies.info);
+    }
+
+    const Found = fav.find(item => item.id === movies.id);
+
     return (
         <>
             <div className="movie">
@@ -62,7 +74,10 @@ const MoviePage = () => {
                     <p>{movies.overview}</p>
                     </div>
                     <div className="poster-button">
-                    <button id={movies.id} onClick={addToList}>Add</button>
+                    { Found ? 
+                        <button id={movies.id} onClick={handleRemoveList}>Remove</button> :
+                        <button id={movies.id} onClick={handleAddList}>Add</button>
+                    }
                     </div>
                 </div>
                 </>

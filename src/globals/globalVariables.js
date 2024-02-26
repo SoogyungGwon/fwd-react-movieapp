@@ -1,6 +1,7 @@
 //App info
 export const appTitle = 'Moviesite';
 export const appAuthor = 'Soogyung Gwon';
+export const appStorageName = 'moo-list';
 
 //api
 export const apiKey = "&api_key=f8bcc12bd6f6afe7a33a79281ec21649";
