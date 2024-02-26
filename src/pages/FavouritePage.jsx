@@ -15,8 +15,8 @@ const FavouritePage = () => {
 
     
     return (
-        <>
-            <h1>Fav</h1>
+        <main>
+            <h1>Your List</h1>
             <div className="movie-wrapper">
             {
                 fav.length < 1 ? <p>No items added to the List</p> : fav.map((res,pos)=>{
@@ -26,7 +26,7 @@ const FavouritePage = () => {
                 })
             }
              </div>
-        </>
+        </main>
     );
 }
 

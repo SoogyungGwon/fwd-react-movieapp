@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { searchBaseURL, appTitle, apiKey } from '../globals/globalVariables';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Poster from '../components/Poster';
 
 

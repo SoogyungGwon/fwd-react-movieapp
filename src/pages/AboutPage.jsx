@@ -1,9 +1,7 @@
 //About page
 
 import { useEffect, useState } from 'react'
-import { appTitle } from '../globals/globalVariables';
-import react from 'react';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { appTitle, imageFolderPath } from '../globals/globalVariables';
 
 const AboutPage = () => {
 
@@ -12,7 +10,6 @@ const AboutPage = () => {
     }, []);
 
     return (
-        <>
         <main>
             <section>
                 <h1>Welcome to Moo</h1>
@@ -46,6 +43,9 @@ const AboutPage = () => {
 
             <section>
                 <h2>Seamless Integration with TMDb API</h2>
+                <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+                <img className="tmdb-logo" src={`${imageFolderPath}blue_square_2.svg`} />
+                
                 <p>Moo leverages the power of the TMDb movie API to deliver accurate and up-to-date information about your favorite
                 movies. From detailed movie descriptions and cast information to reviews and ratings, Moo ensures that you have all
                 the information you need in one place. Say goodbye to hopping between multiple platforms; Moo streamlines your
@@ -59,7 +59,6 @@ const AboutPage = () => {
                 your desktop or mobile device, we've optimized the experience to suit your needs.</p>
             </section>
         </main>
-        </>
     );
 }
 
