@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react'
 import { appTitle, popularQuery, apiKey } from '../globals/globalVariables';
 import Poster from '../components/Poster';
 
-const HomePage = ( {query} ) => {
+const HomePage = () => {
 
     const [movies, setMovie] = useState([]);
-    
+        
     useEffect(() => {
         document.title = `${appTitle} - Home`;
     }, []);

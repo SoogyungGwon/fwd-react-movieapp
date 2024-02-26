@@ -1,18 +1,23 @@
 import react, { useState } from 'react';
 import { imageBaseURL } from '../globals/globalVariables';
+import { updateMovieID } from '../feature/singleMovieSlice';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Poster = ( movies ) => {
 
-    const [movieID, setMovieID] = useState(" ");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const addToList = () => {
+    const addToList = (e) => {
+
 
     }
 
     const seeMore = (e) => {
-        setMovieID(e.target.value);
-        console.log({movieID});
-        
+        console.log(e.target.id);
+        dispatch(updateMovieID(e.target.id));
+        navigate('/movie/mid='+e.target.id);
     }
 
         return (
@@ -29,8 +34,8 @@ const Poster = ( movies ) => {
                         <p>{movies.info.overview}</p>
                     </div>
                     <div className="poster-button">
-                        <button value={movies.info.id} onClick={addToList}>Add</button>
-                        <button value={movies.info.id} onClick={seeMore}>More</button>
+                        <button id={movies.info.id} onClick={addToList}>Add</button>
+                        <button id={movies.info.id} onClick={seeMore}>More</button>
                     </div>
                 </div>
             </div>

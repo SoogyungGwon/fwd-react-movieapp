@@ -1,26 +1,27 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react'
-import { searchBaseURL } from '../globals/globalVariables';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchKey } from '../feature/searchSlice';
 
-const Header = ( { onQuery } ) => {
+const Header = () => {
 
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useSelector(state => state.searchKey);    
             
     const searchMovie = (evt) => {
         if(evt.key=="Enter" || evt.type == "click"){
-            let url=`${searchBaseURL}` + `${search}`;
-            console.log(url);
-            onQuery(url)
-            setSearch("");
+            dispatch(setSearchKey(search));
             navigate('/search');
         }
     }
 
     const searchEntered = (e) => {
         e.preventDefault();
-        console.log('search changed');
         setSearch(e.target.value);
+        
     }
 
     return (
