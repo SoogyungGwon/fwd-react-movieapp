@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { APP_FOLDER_NAME } from '../globals/globalVariables';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 
 // Components
@@ -16,7 +16,7 @@ import SearchPage from '../pages/SearchPage'
 const AppRouter = () => {
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
             <Header />
             <Routes>
                 <Route path="/" exact element={ <HomePage /> } />

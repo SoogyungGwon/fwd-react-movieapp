@@ -1,8 +1,13 @@
+//Publish
+const APP_FOLDER_NAME = "moviesite";
+const OTHER_GLOBAL = "other-global";
+export { APP_FOLDER_NAME, OTHER_GLOBAL }
+
 //App info
 export const appTitle = 'Moviesite';
 export const appAuthor = 'Soogyung Gwon';
 export const appStorageName = 'moo-list';
-export const imageFolderPath = import.meta.env.BASE_URL + 'src/assets/';
+export const imageFolderPath = import.meta.env.BASE_URL + 'assets/';
 
 //api
 export const apiKey = "&api_key=f8bcc12bd6f6afe7a33a79281ec21649";

@@ -10,14 +10,11 @@ const Poster = ( movies ) => {
 
     const fav = useSelector((state) => state.fav.items);
     const Found = fav.find(item => item.id === movies.info.id);
-    let bgimg = null;
+    let bgimg = imageBaseURL + movies.info.poster_path;
+    console.log(bgimg);
 
-    if(movies.info.post_path !== null) {
-        bgimg = imageBaseURL + movies.info.poster_path;
-    }else{
-        console.log("running");
-        bgimg = `${imageFolderPath}logo.png`;
-        console.log(bgimg);
+    if (bgimg === "https://image.tmdb.org/t/p/w500/null") {
+        bgimg = imageFolderPath + 'no-movie-poster.jpg';
     }
     
     const posterStyle = {
@@ -32,20 +29,14 @@ const Poster = ( movies ) => {
     const navigate = useNavigate();
     
     const handleRemoveList = (e) => {
-        console.log("Remove id: " + e.target.id);
         dispatch(removeFromList(movies.info));
-        
-        console.log(movies.info);
     }
 
     const handleAddList = (e) => {
-        console.log("id: " + e.target.id);
         dispatch(addToList(movies.info));
-        console.log(movies.info);
     }
 
     const seeMore = (e) => {
-        console.log(e.target.id);
         dispatch(updateMovieID(e.target.id));
         navigate('/movie/mid='+e.target.id);
     }
