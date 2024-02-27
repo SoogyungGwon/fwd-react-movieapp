@@ -11,8 +11,6 @@ const SearchPage = () => {
     const [movies, setMovie] = useState([]);
 
     const searchKey = useSelector(state => state.search.value);
-    console.log("searchKey is:" + searchKey);
-
     const query = searchBaseURL + searchKey;
      
     useEffect(() => {

@@ -8,13 +8,44 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-left: 0;
+    padding: 0 1rem .5rem 0;
   }
+
+  .main-nav li {
+    display: flex;
+  }
+
+.mobile-main-nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 1rem;
+
+}
 
   .home-logo {
     width: 100px;
   }
 
-  nav {
-    padding: 1rem;
+nav {
+  padding: 1rem;
+  margin-left: .5rem;
+}
+
+.home-logo {
+  min-width: 3rem;
+}
+
+.navSearchLi {
+  display: flex;
+  justify-content: center;
+}
+
+#search-input {
+  padding: .25rem;
+  margin-left: .5rem;
 }
