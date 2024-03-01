@@ -4,6 +4,9 @@ import { addToList, removeFromList } from '../feature/favSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { imageFolderPath } from '../globals/globalVariables'
+//image import
+import heartImg from '../assets/heart.png';
+import noPosterImg from '../assets/no-movie-poster.jpg';
 
 
 const Poster = ( movies ) => {
@@ -11,13 +14,13 @@ const Poster = ( movies ) => {
     const fav = useSelector((state) => state.fav.items);
     const Found = fav.find(item => item.id === movies.info.id);
     let bgimg = imageBaseURL + movies.info.poster_path;
-    console.log(bgimg);
 
     if (bgimg === "https://image.tmdb.org/t/p/w500/null") {
-        bgimg = imageFolderPath + 'no-movie-poster.jpg';
+        bgimg = noPosterImg;
     }
     
     const posterStyle = {
+        
         backgroundImage: `url(${bgimg})`,
         backgroundSize: `cover`,
         backgroudPosition: `center`,
@@ -47,7 +50,7 @@ const Poster = ( movies ) => {
                 <div className='movie-details-on-poster'>
                     {Found &&
                     <div className="heart">
-                        <img src={`${imageFolderPath}heart.png`} />
+                        <img src={heartImg} />
                     </div>}
                     <div className='movie-text-box-on-poster'>
                         <h4 className="title">{movies.info.title}</h4>

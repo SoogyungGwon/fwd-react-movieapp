@@ -8,6 +8,7 @@ const HomePage = () => {
 
     const [movies, setMovie] = useState([]);
     const [query, setQuery] = useState(popularQuery);
+    const [title, setTitle] = useState("Popular");
         
     useEffect(() => {
         document.title = `${appTitle} - Home`;
@@ -15,6 +16,7 @@ const HomePage = () => {
 
     useEffect(() => {
 
+        console.log("how many times it runs?");
         const getJsonPopular = async () => {
             const response = await fetch(query + apiKey, {
             });
@@ -32,15 +34,19 @@ const HomePage = () => {
         switch(e.target.id) {
             case 'popular':
                 setQuery(popularQuery);
+                setTitle("Popular");
                 break;
             case 'top-rated':
                 setQuery(topRatedQuery);
+                setTitle("Top Rated");
                 break;
             case 'now-playing':
                 setQuery(nowPlayingQuery);
+                setTitle("Now Playing");
                 break;
             case 'upcoming':
                 setQuery(upcomingQuery);
+                setTitle("Upcoming");
                 break;
             default:
                 setQuery(popularQuery);
@@ -60,7 +66,7 @@ const HomePage = () => {
             </section>
 
             <section>
-                <h2>Popular movies</h2>
+                <h2>{title}</h2>
                 <div className='movie-wrapper'>
                     {
                         (movies.length==0) ? <p>Movies not found!</p>:movies.map((res,pos)=>{

@@ -3,6 +3,9 @@
 import { useEffect, useState } from 'react'
 import { appTitle, imageFolderPath } from '../globals/globalVariables';
 
+// Import Image
+import tmdbImg from '../assets/blue_square_2.svg';
+
 const AboutPage = () => {
 
     useEffect(() => {
@@ -44,7 +47,7 @@ const AboutPage = () => {
             <section>
                 <h2>Seamless Integration with TMDb API</h2>
                 <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-                <img className="tmdb-logo" src={`${imageFolderPath}blue_square_2.svg`} />
+                <img className="tmdb-logo" src={tmdbImg} />
                 
                 <p>Moo leverages the power of the TMDb movie API to deliver accurate and up-to-date information about your favorite
                 movies. From detailed movie descriptions and cast information to reviews and ratings, Moo ensures that you have all
