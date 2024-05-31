@@ -25,12 +25,11 @@ const Header = () => {
     const handleResize = () => {
 
         setWindowWidth(window.innerWidth);
-        //console.log(windowWidth);
         
         if(windowWidth < 670) {
-            setMobile(true);
+            setMobile(!isMobile);
         }else{
-            setMobile(false);
+            setMobile(!isMobile);
             setMobileMenuOpen(false);
         }        
     };
@@ -71,7 +70,7 @@ const Header = () => {
         <nav>
             <ul className="main-nav">
                 <li><NavLink to="/"><img className="home-logo" src={logoImg} /></NavLink></li>
-                {(!isMobile) ? (
+                {(windowWidth > 670) ? (
                     <>
                     <li><NavLink to="/favourite">List</NavLink></li>
                     <li><NavLink to="/about">About</NavLink></li>

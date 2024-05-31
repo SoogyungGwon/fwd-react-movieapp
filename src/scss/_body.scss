@@ -1,9 +1,80 @@
+//////////////////////////////////////////////////
+/// GENERAL
+
 body {
     background-color: $dark;
 }
 
 main {
     padding: 1rem;
+}
+
+@media (min-width: 120em) {
+  main, nav {
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+}
+
+//Scroll bar
+/* For Webkit Browsers (Chrome, Safari) */
+
+::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: $main;
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #000000
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #000000;
+}
+
+button {
+  background-color: #ffffff;
+  color: #000000;
+  padding: .5rem .75rem;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 .5rem;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+
+//////////////////////////////////////////////////
+
+/* Movie Poster */
+.movie-category {
+  margin-left: 1rem;
+}
+
+.movie-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+//Poster box
+.clean-bright-box {
+  background-color: #f4f4f4;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .movie-details-on-poster {
@@ -15,6 +86,7 @@ main {
     padding: 1rem;
     width: 100%;
     height: 100%;
+    border-radius: 2px;
     background-color: rgb(0,0,0,.7);
 }
 
@@ -22,15 +94,18 @@ main {
     opacity: 100%;
 }
 
-p.overview-on-poster {
-    //max-height: 60%;
-    overflow: hidden;
+.overview-on-poster, p.overview-on-poster {
+    overflow: auto;
     text-overflow: ellipsis;
+}
 
+p.overview-on-poster {
+  margin-bottom: 1rem;
 }
 
 .poster-button {
     text-align: center;
+    margin-top: .5rem;
 }
 
 .rating {
@@ -39,9 +114,10 @@ p.overview-on-poster {
 
 .movie {
     min-width: 300px;
-    min-height: 500px;
+    min-height: 400px;
     margin: 1rem 0;
-    flex: 1;
+    flex: 0 0 15%;
+    aspect-ratio: 4/3;
 }
 
 .movie .heart {
@@ -56,72 +132,38 @@ img.poster-image {
     max-width: 200px;
 }
 
-.movie-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-around;
-    align-items: stretch;
+.heart {
+  padding: .5rem;
+  right: 0;
+}
+
+.heart img {
+  max-width: 20px;
+}
+
+.movie-text-box-on-poster {
+  margin-top: 1.5rem;
 }
 
 .type-button {
-    text-align: center;
-    display: flex;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-
-//Layout
-button {
-    background-color: #ffffff;
-    color: #000000;
-    padding: .5rem .75rem;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 .5rem;
-  }
-
-  button:hover {
-    background-color: #f0f0f0;
-  }
-
-  .heart {
-    padding: .5rem;
-    right: 0;
-  }
-
-  .heart img {
-    max-width: 20px;
-  }
-
-  .movie-text-box-on-poster {
-    margin-top: 1.5rem;
-  }
-
   
-  //More page
-  .more-movie {
-    text-align: center;
-  }
+/* More page */
+.more-movie {
+  text-align: center;
+}
 
-  .backdrop-image {
-    width: 50%;
-    margin: 1rem 0;
-  }
+.backdrop-image {
+  width: 50%;
+  margin: 1rem 0;
+}
 
-  //About page
-  .tmdb-logo {
-    width: 20%;
-    margin: auto 0;
-  }
-
-  @media (min-width: 120em) {
-    main, nav {
-      max-width: 75rem;
-      margin: 0 auto;
-    }
-  }
+/* About page */
+.tmdb-logo {
+  width: 20%;
+  margin: auto 0;
+}
