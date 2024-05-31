@@ -3,7 +3,6 @@ import { updateMovieID } from '../feature/singleMovieSlice';
 import { addToList, removeFromList } from '../feature/favSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { imageFolderPath } from '../globals/globalVariables'
 //image import
 import heartImg from '../assets/heart.png';
 import noPosterImg from '../assets/no-movie-poster.jpg';
@@ -22,8 +21,8 @@ const Poster = ( movies ) => {
     const posterStyle = {
         
         backgroundImage: `url(${bgimg})`,
-        backgroundSize: `cover`,
-        backgroudPosition: `center`,
+        backgroundSize: `100% 100%`,
+        backgroundPosition: `center`,
         backgroundRepeat: `no-repeat`,
         width: `100%`,
     }
@@ -46,7 +45,7 @@ const Poster = ( movies ) => {
 
     return (
         <>
-            <div className="movie" style={posterStyle}>
+            <div className="movie clean-bright-box" style={posterStyle}>
                 <div className='movie-details-on-poster'>
                     {Found &&
                     <div className="heart">
