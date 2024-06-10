@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.gitsecret/keys/random_seed
+!*.secret
+src/globals/key.js
