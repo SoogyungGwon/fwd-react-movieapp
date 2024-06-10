@@ -1,15 +1,7 @@
-//Publish
-const APP_FOLDER_NAME = "moviesite";
-const OTHER_GLOBAL = "other-global";
-export { APP_FOLDER_NAME, OTHER_GLOBAL }
-
-//App info
 export const appTitle = 'Moviesite';
 export const appAuthor = 'Soogyung Gwon';
 export const appStorageName = 'moo-list';
 export const imageFolderPath = import.meta.env.BASE_URL + 'assets/';
-
-
 
 //Genre
 export const popularQuery = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
