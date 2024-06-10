@@ -1,7 +1,8 @@
 //Home
 
 import { useEffect, useState } from 'react'
-import { searchBaseURL, appTitle, apiKey } from '../globals/globalVariables';
+import { searchBaseURL, appTitle } from '../globals/globalVariables';
+import { apiKey } from '../globals/key'
 import { useSelector } from 'react-redux';
 import Poster from '../components/Poster';
 
@@ -20,7 +21,12 @@ const SearchPage = () => {
     useEffect(() => {
 
         const getSearch = async () => {
-            const response = await fetch(query + apiKey, {
+            const response = await fetch(query, {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${apiKey}`
+                }
             });
 
             const data = await response.json();

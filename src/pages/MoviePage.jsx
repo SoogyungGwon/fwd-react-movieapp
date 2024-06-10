@@ -8,7 +8,8 @@ import { useParams } from 'react-router-dom';
 import { addToList, removeFromList } from '../feature/favSlice';
 
 //Variables
-import { appTitle, apiKey, singleMoveQuery, imageBaseURL } from '../globals/globalVariables';
+import { appTitle, singleMoveQuery, imageBaseURL } from '../globals/globalVariables';
+import { apiKey } from '../globals/key'
 
 //Image import
 import noPosterImg from '../assets/no-movie-poster.jpg';
@@ -33,6 +34,11 @@ const MoviePage = () => {
 
         const getSingleMovieData = async () => {
             const response = await fetch(query, {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${apiKey}`
+                }
             });
 
             const data = await response.json();
