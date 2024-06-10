@@ -1,7 +1,8 @@
 //Home
 
 import { useEffect, useState } from 'react'
-import { appTitle, popularQuery, topRatedQuery, nowPlayingQuery, upcomingQuery, apiKey } from '../globals/globalVariables';
+import { appTitle, popularQuery, topRatedQuery, nowPlayingQuery, upcomingQuery } from '../globals/globalVariables';
+import { apiKey } from '../globals/key'
 import Poster from '../components/Poster';
 import HeroImgSlider from '../components/HeroImgSlider';
 
@@ -18,7 +19,12 @@ const HomePage = () => {
     useEffect(() => {
 
         const getJson = async () => {
-            const response = await fetch(query + apiKey, {
+            const response = await fetch(query, {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${apiKey}`
+                }
             });
 
             const data = await response.json();
